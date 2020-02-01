@@ -5,6 +5,6 @@ Break is a human annotated dataset of natural language questions and their Quest
 
 ### Changelog
 - `2/1/2020` Our models and entire codebase will be uploaded soon.
-- `2/1/2020` The full dataset has been offically released at [https://allenai.github.io/Break/](https://allenai.github.io/Break/).
+- `2/1/2020` The full dataset has been publicly released at [https://allenai.github.io/Break/](https://allenai.github.io/Break/).
 
 
