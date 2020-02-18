@@ -1,4 +1,4 @@
-# Annotation Pipeline Amazon Mechanical Turk API
+# QDMR Annotation Pipeline: Amazon Mechanical Turk API
 
 ## Credits
 
