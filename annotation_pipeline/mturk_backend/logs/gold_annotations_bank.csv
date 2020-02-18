@@ -1,0 +1,25 @@
+bank_id,annotation_id,question_id,question_text,decomposition_accepted,decomposition
+1,1000001,pilot,Return the title and director of the movie released in the year 2000 or earlier that had the highest worldwide gross.,1,return movie released in the year 2000 or earlier ;return worldwide gross of #1 ;return title and director where #2 is highest
+2,1000002,pilot,What movies  staring Diana Ross did George Lucas produce?,1,return movies staring Diana Ross ;return movies George Lucas produce ;return #1 that #2
+3,1000003,pilot,return me the paper after 2000 in Databases area with the most citations .,1,return papers in Databases area after 2000 ;return papers in Databases area with the most citations ;return papers with both #1 and #2
+4,1000004,pilot,"return me the keyword, which have been contained by the most number of papers in PVLDB . ",1,return papers in PVLDB ;return #1 sorted by number ;return the keyword where #2 is the most
+5,1000005,pilot,return me the author who has the most number of papers in the VLDB conference .,1,return authors who have papers in the VLDB conference ;return #1 who has the most number of papers
+6,1000006,pilot,"return me the number of papers written by "" H. V. Jagadish "" and "" Divesh Srivastava "" before 2000 .",1,"return papers written by Jagadish ;return #1 written before 2000 ;return papers written by Srivastava ;return #3 written before 2000 ;return #2 , #4 ;return return number of #5"
+7,1000007,pilot,What are the id and first name of the student whose addresses have the highest average monthly rental?,1,"return addresses have the highest average monthly rental ;return the id of student whose #1 ;return the first name of the student whose #1 ;return #2 , #3"
+8,1000008,pilot,"In what year was the actor who was starred in \""The Mating Habits of the Earthbound Human\"" with Carmen Electra, Lucy Liu, and Mackenzie Astin born?",1,"  return actor who starred in The Mating Habits of the Earthbound Human ;return the year #1 was born
+"
+9,1000009,pilot,What form of currency is used in the nation where you'd find Rio de Janeiro?,1,return currency of nation ;return #1 where you find Rio de Janeiro
+10,1000010,pilot,Find the name of students who have taken the prerequisite course of the course with title International Finance.,1,return name of students ;return taken the prerequisite course ;return the course with title International Finance ;return #1 who have #2 of #3
+11,1000011,pilot,What year did the team with Baltimore Fight Song win the Superbowl?,1,return team with Baltimore Fight Song ;return year win Superbowl
+12,1000012,pilot,on usa air how many flights leaving oakland on july twenty seventh to boston nonstop,1,return flights on july twenty seventh ;return #1 from oakland to boston ;return #2 that are nonstop ;return #3 that are usa air
+13,1000013,pilot,How many more yards was Kris Browns's first field goal over his second?,1,return Kris Browns first field goal yards ;return Kris Browns second field goal yards ;return how many more yards was #1 than #2
+14,1000014,pilot,"Which art gallery came last, Trescott Street Gallery or Art Euphoric?",1,"return Trescott Street Gallery ;return Art Euphoric ;return Which art gallery came last of #1 , #2"
+15,1000015,pilot,Are any objects shiny purple?,1,return objects ;return #1 which are purple and shiny
+16,1000016,pilot,Which color has the most objects?,1,return color of objects ;return #1 sorted by color ;return #2 where color is most
+17,1000017,pilot,How many objects smaller than the matte object are silver?,1,return number of objects ;return #1 smaller than the matte object ;return #2 that are silver
+18,1000018,pilot,Who is the cast member of Thor whose mother was born in a French speaking county?,1,return Thor cast members ;return mothers of #1 ;return French speaking counties ;return #2 born in #3
+19,1000019,pilot,Who is the cast member of Thor whose mother was born in a French speaking county?,1, return the cast member of Thor ;return mother was born in a French speaking county ;return #1 whose #2
+20,1000020,pilot,List the members of Nirvana whose spouse first name is Katie,1,return members of Nirvana ;return #1 whose spouse first name is Katie ;return List of #2
+21,1000021,pilot,List the members of Nirvana whose spouse first name is Katie,1,return the members of Nirvana ;return spouses of #1 ;return #1 whose #2 is Katie
+22,1000022,pilot,What is height of the Golden State Warriors guard whose father played for the LA Lakers?,1,return height ;return Golden State Warriors guard ;return played for the LA Lakers ;return #1 of #2 whose father #3
+23,1000023,pilot,What is height of the Golden State Warriors guard whose father played for the LA Lakers?,1,return the Golden State Warriors guards ;return #1 whose father played for the LA Lakers ;return height of #2

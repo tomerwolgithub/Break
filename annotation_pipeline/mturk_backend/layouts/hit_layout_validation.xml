@@ -1,0 +1,169 @@
+<HTMLQuestion xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2011-11-11/HTMLQuestion.xsd">
+  <HTMLContent>
+    <![CDATA[
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+          <meta content="width=device-width,initial-scale=1" name="viewport" />
+		  <script type='text/javascript' src='https://s3.amazonaws.com/mturk-public/externalHIT_v1.js'></script>
+        </head>
+<section class="container" id="SurveyLink"><!-- Instructions -->
+<div class="row">
+<div class="col-xs-12 col-md-12">
+<div class="panel panel-primary"><!-- WARNING: the ids "collapseTrigger" and "instructionBody" are being used to enable expand/collapse feature --><a class="panel-heading" href="javascript:void(0);" id="collapseTrigger"><strong>HIT Instructions</strong> <span class="collapse-text">(Click to expand)</span> </a>
+<div class="panel-body" id="instructionBody">
+<div><strong>Welcome to the TDT validation task:</strong></div>
+
+<div>In the course of the study, you will be asked to validate two distinct query decompostions.</div>
+
+<div>&nbsp;</div>
+
+<div><strong>Participant Requirements:</strong></div>
+
+<div>1.&nbsp; You are 18 years old or older.</div>
+
+<div>2.&nbsp; You are from an English speaking country (US, Canada)</div>
+
+<div>&nbsp;</div>
+
+<div><strong>Completing the HIT:</strong></div>
+
+<div>1.&nbsp; Review the tutorial at the TDT website regarding what are <b>valid query decompositions</b>.</div>
+
+<div>2.&nbsp; Read the each question listed below and its relevant query decomposition (see TDT website).</div>
+
+<div>3.&nbsp; For each question, determine whether its decomposition is indeed a valid question decomposition.</div>
+
+<div>4.&nbsp; Write your answers (yes/no) in the relevant boxes for each question. Entering answers other than yes/no will result in the HIT being rejected.</div>
+
+<div>&nbsp;</div>
+
+<div><strong>Benefits:</strong></div>
+
+<div>The main personal benefit from your participation is the compensation provided through Mechanical Turk. Apart from that, the knowledge received will aid our research in natural language processing.</div>
+
+<div>&nbsp;</div>
+
+<div><strong>Confidentiality:</strong></div>
+
+<div>Your confidentiality will be maintained in the following manner: By participating, you understand and agree that the data and information gathered during this study may be used by Tel Aviv University and published and/or disclosed by Tel Aviv University to others outside of Tel Aviv University. However, no personal details are gathered or required for this study.</div>
+
+<div>&nbsp;</div>
+
+<div><strong>Rights:</strong></div>
+
+<div>Your participation is voluntary. You are free to stop your participation at any point. Refusal to participate or withdrawal of your consent or discontinued participation in the study will not result in any penalty or loss of benefits or rights to which you might otherwise be entitled. Please answer the questionnaire with full attention. Invalid questionnaire (consistency check and logical tests will be randomly performed) will be discarded from the study and its participant will not be paid.</div>
+
+<div>&nbsp;</div>
+
+<div><strong>Important:</strong></div>
+
+<div>* Although the initial instructions might be long please consider this task will include over 50,000 HITs.</div>
+
+<div>* Your results will be manually reviewed, random results will not be approved.</div>
+
+<div>&nbsp;</div>
+
+</div>
+</div>
+</div>
+</div>
+<!-- End Instructions --><!-- HIT Layout -->
+
+<div class="row" id="workContent">
+<div class="col-xs-12 col-md-6 col-md-offset-3"><!-- Content for Worker -->
+<table class="table table-condensed table-bordered">
+	<colgroup>
+		<col class="col-xs-4 col-md-4" />
+		<col class="col-xs-8 col-md-8" />
+	</colgroup>
+	<tbody>
+		<tr>
+			<td><label>Instructions website:</label></td>
+			<td>https://secure-coast-43378.herokuapp.com/</td>
+		</tr>
+	</tbody>
+</table>
+
+<form name='mturk_form' method='post' id='mturk_form' action='https://www.mturk.com/mturk/externalSubmit'><input type='hidden' value='' name='assignmentId' id='assignmentId'/>
+
+<div class="form-group"><span style="color:#B22222;"><label for="statement">* Workers that have not read all examples on the TDT website and their decomposition does not follow the specified instructions will have their HIT rejected.</label></span></div>
+
+<div class="form-group"><span style="color:#B22222;"><label for="statement">* Answers other than yes or no will be automatically rejected.</label></span></div>
+
+<div class="form-group"><span style="color:#800080;"><label for="statement">* Workers that continually receive low scores (see TDT qualification) should review the instructions, particularly the &quot;common pitfalls&quot; section.</label></span></div>
+
+<div class="form-group"><span style="color:#B22222;"><label for="statement">* Although the initial instructions might be long please consider this task will include over 50,000 HITs. </label></span></div>
+<!-- End Content for Worker --><!-- Input from Worker -->
+
+{% if bank_comes_first %}
+    <div class="form-group"><span style="color:#000000;"><label for="bnk">Given the following question and its decomposition, is the query decomposition valid?</label></span><div id={{bank_id}}><b>Question:</b> {{bank_question_text}}</div><div id={{bank_id}} name="bnk_id"><b>Decomposition:</b> {{bank_decomoposition}}</div><input class="form-control" id="bnk" name="bnk" placeholder="e.g. yes/no" required="" style="line-height: 1.42857; width: 455px;" type="text" /></div>
+	<br>
+{% endif %}
+
+<div class="form-group"><span style="color:#000000;"><label for="ant">Given the following question and its decomposition, is the query decomposition valid?</label></span><div id={{question_id}}><b>Question:</b> {{question_text}}</div><div id={{annotation_id}} name="ant_id"><b>Decomposition:</b> {{decomoposition}}</div><input class="form-control" id="ant" name="ant" placeholder="e.g. yes/no" required="" style="line-height: 1.42857; width: 455px;" type="text" /></div>
+
+{% if not bank_comes_first %}
+	<br>
+    <div class="form-group"><span style="color:#000000;"><label for="bnk">Given the following question and its decomposition, is the query decomposition valid?</label></span><div id={{bank_id}}><b>Question:</b> {{bank_question_text}}</div><div id={{bank_id}} name="bnk_id"><b>Decomposition:</b> {{bank_decomoposition}}</div><input class="form-control" id="bnk" name="bnk" placeholder="e.g. yes/no" required="" style="line-height: 1.42857; width: 455px;" type="text" /></div>
+{% endif %}
+
+<p><input type='submit' id='submitButton' value='Submit' /></p>
+</form>
+<script language='Javascript'>turkSetAssignmentID();</script>	
+
+<!-- End input from Worker --></div>
+</div>
+<!-- End HIT Layout --></section>
+<!-- Please note that Bootstrap CSS/JS and JQuery are 3rd party libraries that may update their url/code at any time. Amazon Mechanical Turk (MTurk) is including these libraries as a default option for you, but is not responsible for any changes to the external libraries --><!-- External CSS references -->
+<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" integrity="sha384-IS73LIqjtYesmURkDE9MXKbXqYA8rvKEp/ghicjem7Vc3mGRdQRptJSz60tvrB6+" rel="stylesheet" /><!-- Open internal style sheet -->
+<style type="text/css">#collapseTrigger{
+  color:#fff;
+  display: block;
+  text-decoration: none;
+}
+#submitButton{
+  white-space: normal;
+}
+.image{
+  margin-bottom: 15px; 
+}
+/* CSS for breaking long words/urls */
+.dont-break-out {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+</style>
+<!-- Close internal style sheet --><!-- External JS references --><script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" integrity="sha384-s1ITto93iSMDxlp/79qhWHi+LsIi9Gx6yL+cOKDuymvihkfol83TYbLbOw+W/wv4" crossorigin="anonymous"></script><!-- Open internal javascript --><script>
+  $(document).ready(function() {
+    // Instructions expand/collapse
+    var content = $('#instructionBody');
+    var trigger = $('#collapseTrigger');
+    content.hide();
+    $('.collapse-text').text('(Click to expand)');
+    trigger.click(function(){
+      content.toggle();
+      var isVisible = content.is(':visible');
+      if(isVisible){
+        $('.collapse-text').text('(Click to collapse)');
+      }else{
+        $('.collapse-text').text('(Click to expand)');
+      }
+    });
+    // end expand/collapse
+  });
+</script><!-- Close internal javascript -->
+        </body>
+      </html>
+    ]]>
+  </HTMLContent>
+  <FrameHeight>450</FrameHeight>
+</HTMLQuestion>
