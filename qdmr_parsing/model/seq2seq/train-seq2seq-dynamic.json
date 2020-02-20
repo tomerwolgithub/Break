@@ -1,0 +1,63 @@
+{
+  "dataset_reader":{
+    "type":"seq2seq_dynamic",
+
+    "source_token_indexers": {
+      "tokens": {
+        "type": "single_id",
+        "namespace": "tokens"
+      }
+    },
+
+    "target_token_indexers": {
+      "tokens": {
+        "type": "single_id",
+        "namespace": "tokens"
+      }
+    }
+  },
+
+  "train_data_path": "data/train_dynamic.tsv",
+  "validation_data_path": "data/dev_dynamic.tsv",
+  "test_data_path": "data/test_dynamic.tsv",
+
+  "model": {
+    "type": "simple_seq2seq_dynamic",
+    "source_embedder": {
+      "tokens": {
+        "type": "embedding",
+        "embedding_dim": 150,
+        "vocab_namespace": "tokens",
+        "trainable": true,
+      },
+    },
+
+    "encoder": {
+      "type": "lstm",
+      "input_size": 150,
+      "hidden_size": 150,
+      "num_layers": 5,
+      "dropout": 0.2
+    },
+
+    "max_decoding_steps": 200,
+    "attention_function": {"type": "dot_product"},
+    "beam_size": 5
+  },
+
+  "iterator": {
+    "type": "bucket",
+    "sorting_keys": [["source_tokens", "num_tokens"]],
+    "batch_size": 32
+  },
+
+  "trainer": {
+    "num_epochs": 80,
+    "patience": 15,
+    "cuda_device": 0,
+    "optimizer": {
+      "type": "adam",
+      "lr": 0.01
+    }
+  }
+}
