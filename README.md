@@ -12,6 +12,7 @@ Break is a human annotated dataset of natural language questions and their Quest
 - `2/1/2020` The full dataset has been publicly released at [https://allenai.github.io/Break/](https://allenai.github.io/Break/).
 
 ## Structure
+The repository features:
 
 * The [QDMR Parsing models](https://github.com/tomerwolgithub/Break/tree/master/qdmr_parsing), by [**Mor Geva**](https://mega002.github.io/)
 * The Open-domain QA models utilizing QDMR, by [**Ankit Gupta**](https://github.com/ag1988) (*coming soon!*)
