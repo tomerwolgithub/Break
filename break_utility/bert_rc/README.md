@@ -42,6 +42,5 @@ The predictions will be stored in the preds_dir `preds_hotpot_disdev`. One can a
 python hotpot_evaluate_v1.py ./preds_hotpot_distdev/predictions.json  ../data/hotpot_data/hotpot_dev_distractor_v1.json
 ```
 
-
 Contact: [Ankit Gupta](https://github.com/ag1988).
 
