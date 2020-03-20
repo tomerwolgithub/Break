@@ -54,7 +54,17 @@ There are 5 baseline models implemented in the paper, three seq2seq neural model
 
 To run our rule-based models, use the script `model/run_model.py` either on an input file or by providing a question as an argument (see examples in the evaluation section).
 
-Training and running the neural models can be done with the [AllenNLP framework](https://allenai.github.io/allennlp-docs/) and the provided configurations (details on the hyperparameters used in our work can be found in the paper).
+Training and running the neural models can be done with the [AllenNLP framework](https://allenai.github.io/allennlp-docs/) and the provided configurations.  
+The hyperparameters used in the neural models described in our [paper](https://arxiv.org/abs/2001.11770) are:
+
+|model | dataset | hyperparameters |
+|--------|:--------:|:--------|
+| seq2seq | Break | `layers1_lr0.001_hd450_dop0.0` |
+| copynet | Break | `layers2_lr0.001_hd450_dop0.2` | 
+| seq2seq-dynamic | Break | `layers1_lr0.001_hd450_dop0.2` | 
+| seq2seq | Break high-level | `layers1_lr0.001_hd300_dop0.0` |
+| copynet | Break high-level | `layers3_lr0.001_hd450_dop0.2` | 
+| seq2seq-dynamic | Break high-level | `layers1_lr0.001_hd300_dop0.3` |
   
 
 ## Evaluation
