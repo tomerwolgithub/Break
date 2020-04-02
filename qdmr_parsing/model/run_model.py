@@ -4,11 +4,18 @@ import json
 import os
 import pandas as pd
 import random
+import sys
+from copy import deepcopy
 
+sys.path.append('.')
 from evaluation.decomposition import Decomposition, get_decomposition_from_tokens
 from model.rule_based.rule_based_model import RuleBasedModel
 from model.rule_based.copy_model import CopyModel
 from model.seq2seq.seq2seq_model import Seq2seqModel
+
+sys.path.append('..')
+from annotation_pipeline.utils.app_store_generation import valid_annotation_tokens
+
 
 
 pd.set_option('display.width', 1000)
@@ -52,7 +59,10 @@ def main(args):
         questions = [args.question]
         if args.evaluate:
             golds = [[s.strip() for s in args.gold.split('@@SEP@@')]]
-        allowed_tokens = None
+        if args.model == "dynamic":
+            allowed_tokens = [str(get_allowed_tokens(valid_annotation_tokens(args.question)))]
+        else:
+            allowed_tokens=None
 
     # initialize a model
     model = init_model(args)
@@ -64,6 +74,8 @@ def main(args):
     else:
         decompositions = model.predict(questions, args.print_non_decomposed, args.verbose,
                                        extra_args=allowed_tokens)
+
+    print([decom.to_string() for decom in decompositions])
 
     # evaluation
     if args.evaluate:
@@ -94,10 +106,14 @@ def validate_args(args):
     if args.model in ["seq2seq", "copynet", "dynamic"]:
         assert os.path.exists(args.model_dir)
 
-    # seq2seq dynamic only accepts input file at the moment
-    # TODO: add option for single example prediction
-    if args.model == "dynamic":
-        assert args.input_file
+
+def get_allowed_tokens(valid_tokens):
+    #converts #i obtained in valid token into @@i@@
+    allowed_tokens=deepcopy(valid_tokens)
+    for i,allowed_token in enumerate(allowed_tokens):
+        if allowed_token.startswith('#') and allowed_token[1:].isnumeric():
+            allowed_tokens[i]='@@{}@@'.format(allowed_token[1:])
+    return allowed_tokens
 
 
 if __name__ == '__main__':
