@@ -75,7 +75,6 @@ def main(args):
         decompositions = model.predict(questions, args.print_non_decomposed, args.verbose,
                                        extra_args=allowed_tokens)
 
-    print([decom.to_string() for decom in decompositions])
 
     # evaluation
     if args.evaluate:
