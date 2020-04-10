@@ -15,6 +15,7 @@ Break is a human annotated dataset of natural language questions and their Quest
 ## Structure
 The repository features:
 * The [QDMR Parsing models](https://github.com/tomerwolgithub/Break/tree/master/qdmr_parsing), by [**Mor Geva**](https://mega002.github.io/)
+** [Pretained QDMR Parsing models](https://github.com/tomerwolgithub/Break/tree/master/qdmr_parsing#cofiguration-and-petrained-models)
 * The [Open-domain QA models](https://github.com/tomerwolgithub/Break/tree/master/break_utility) utilizing QDMR, by [**Ankit Gupta**](https://sites.google.com/view/ag1988/home)
 * The [annotation pipeline](https://github.com/tomerwolgithub/Break/tree/master/annotation_pipeline) of Break
 * Code for converting [QDMR to logical-form](https://github.com/tomerwolgithub/Break/tree/master/qdmr_to_logical_form)
