@@ -54,17 +54,19 @@ There are 5 baseline models implemented in the paper, three seq2seq neural model
 
 To run our rule-based models, use the script `model/run_model.py` either on an input file or by providing a question as an argument (see examples in the evaluation section).
 
-Training and running the neural models can be done with the [AllenNLP framework](https://allenai.github.io/allennlp-docs/) and the provided configurations.  
-The hyperparameters of the neural models described in our [paper](https://arxiv.org/abs/2001.11770) are:
+### Cofiguration and petrained models
 
-|model | dataset | hyperparameters |
-|--------|:--------:|:--------|
-| seq2seq | Break | `layers1_lr0.001_hd450_dop0.0` |
-| copynet | Break | `layers2_lr0.001_hd450_dop0.2` | 
-| seq2seq-dynamic | Break | `layers1_lr0.001_hd450_dop0.2` | 
-| seq2seq | Break high-level | `layers1_lr0.001_hd300_dop0.0` |
-| copynet | Break high-level | `layers3_lr0.001_hd450_dop0.2` | 
-| seq2seq-dynamic | Break high-level | `layers1_lr0.001_hd300_dop0.3` |
+Training and running the neural models can be done with the [AllenNLP framework](https://allenai.github.io/allennlp-docs/) and the provided configurations.  
+The pretrained neural models described in our [paper](https://arxiv.org/abs/2001.11770) are provided below, along with their hyperparameter configurations:
+
+|model | dataset | hyperparameters | download |
+|--------|:--------:|:--------:|:--------| 
+| seq2seq | Break | `layers1_lr0.001_hd450_dop0.0` | [seq2seq_low](https://storage.googleapis.com/ai2i/break_models/seq2seq_layers1_lr0.001_hd450_dop0.0_final_low.zip) |
+| copynet | Break | `layers2_lr0.001_hd450_dop0.2` | [copynet_low](https://storage.googleapis.com/ai2i/break_models/seq2seq-copynet_layers2_lr0.001_hd450_dop0.2_final_low.zip) |
+| seq2seq-dynamic | Break | `layers1_lr0.001_hd450_dop0.2` | [dynamic_low](https://storage.googleapis.com/ai2i/break_models/seq2seq-dynamic_layers1_lr0.001_hd450_dop0.2_final_low_dynamic.zip) |
+| seq2seq | Break high-level | `layers1_lr0.001_hd300_dop0.0` | [seq2seq_high](https://storage.googleapis.com/ai2i/break_models/seq2seq_layers1_lr0.001_hd300_dop0.0_final_high.zip) |
+| copynet | Break high-level | `layers3_lr0.001_hd450_dop0.2` | [copynet_high](https://storage.googleapis.com/ai2i/break_models/seq2seq-copynet_layers3_lr0.001_hd450_dop0.2_final_high.zip) |
+| seq2seq-dynamic | Break high-level | `layers1_lr0.001_hd300_dop0.3` | [dynamic_high](https://storage.googleapis.com/ai2i/break_models/seq2seq-dynamic_layers1_lr0.001_hd300_dop0.3_final_high_dynamic.zip) |
   
 
 ## Evaluation
