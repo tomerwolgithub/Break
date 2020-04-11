@@ -7,11 +7,15 @@ import random
 import sys
 from copy import deepcopy
 
-sys.path.append('.')
 from evaluation.decomposition import Decomposition, get_decomposition_from_tokens
 from model.rule_based.rule_based_model import RuleBasedModel
 from model.rule_based.copy_model import CopyModel
 from model.seq2seq.seq2seq_model import Seq2seqModel
+from utils.preprocess_examples import fix_references
+
+# That's a workaround to solve this small dependency between the root directories
+# "qdmr_parsing" and "annotation_pipeline", which have been developed separately 
+# but are under the same GitHub repository.'''
 
 sys.path.append('..')
 from annotation_pipeline.utils.app_store_generation import valid_annotation_tokens
@@ -60,7 +64,8 @@ def main(args):
         if args.evaluate:
             golds = [[s.strip() for s in args.gold.split('@@SEP@@')]]
         if args.model == "dynamic":
-            allowed_tokens = [str(get_allowed_tokens(valid_annotation_tokens(args.question)))]
+            valid_tokens=[fix_references(valid_token) for valid_token in valid_annotation_tokens(args.question)]
+            allowed_tokens = [str(valid_tokens)]
         else:
             allowed_tokens=None
 
@@ -105,14 +110,6 @@ def validate_args(args):
     if args.model in ["seq2seq", "copynet", "dynamic"]:
         assert os.path.exists(args.model_dir)
 
-
-def get_allowed_tokens(valid_tokens):
-    #converts #i obtained in valid token into @@i@@
-    allowed_tokens=deepcopy(valid_tokens)
-    for i,allowed_token in enumerate(allowed_tokens):
-        if allowed_token.startswith('#') and allowed_token[1:].isnumeric():
-            allowed_tokens[i]='@@{}@@'.format(allowed_token[1:])
-    return allowed_tokens
 
 
 if __name__ == '__main__':
