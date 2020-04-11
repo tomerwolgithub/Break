@@ -13,8 +13,8 @@ from model.rule_based.copy_model import CopyModel
 from model.seq2seq.seq2seq_model import Seq2seqModel
 from utils.preprocess_examples import fix_references
 
-# That's a workaround to solve this small dependency between the root directories
-# "qdmr_parsing" and "annotation_pipeline", which have been developed separately 
+# sys.path.append('..') below a workaround to solve the small dependency between the root
+# directories "qdmr_parsing" and "annotation_pipeline", which have been developed separately 
 # but are under the same GitHub repository.'''
 
 sys.path.append('..')
