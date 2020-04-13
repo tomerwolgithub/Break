@@ -4,11 +4,20 @@ import json
 import os
 import pandas as pd
 import random
+import sys
 
 from evaluation.decomposition import Decomposition, get_decomposition_from_tokens
 from model.rule_based.rule_based_model import RuleBasedModel
 from model.rule_based.copy_model import CopyModel
 from model.seq2seq.seq2seq_model import Seq2seqModel
+from utils.preprocess_examples import fix_references
+
+# sys.path.append('..') below a workaround to solve the small dependency between the root
+# directories "qdmr_parsing" and "annotation_pipeline", which have been developed separately 
+# but are under the same GitHub repository.'''
+sys.path.append('..')
+from annotation_pipeline.utils.app_store_generation import valid_annotation_tokens
+
 
 
 pd.set_option('display.width', 1000)
@@ -52,7 +61,11 @@ def main(args):
         questions = [args.question]
         if args.evaluate:
             golds = [[s.strip() for s in args.gold.split('@@SEP@@')]]
-        allowed_tokens = None
+        if args.model == "dynamic":
+            valid_tokens = [fix_references(valid_token) for valid_token in valid_annotation_tokens(args.question)]
+            allowed_tokens = [str(valid_tokens)]
+        else:
+            allowed_tokens = None
 
     # initialize a model
     model = init_model(args)
@@ -94,10 +107,6 @@ def validate_args(args):
     if args.model in ["seq2seq", "copynet", "dynamic"]:
         assert os.path.exists(args.model_dir)
 
-    # seq2seq dynamic only accepts input file at the moment
-    # TODO: add option for single example prediction
-    if args.model == "dynamic":
-        assert args.input_file
 
 
 if __name__ == '__main__':
