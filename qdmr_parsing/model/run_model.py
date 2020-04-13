@@ -5,7 +5,6 @@ import os
 import pandas as pd
 import random
 import sys
-from copy import deepcopy
 
 from evaluation.decomposition import Decomposition, get_decomposition_from_tokens
 from model.rule_based.rule_based_model import RuleBasedModel
@@ -16,7 +15,6 @@ from utils.preprocess_examples import fix_references
 # sys.path.append('..') below a workaround to solve the small dependency between the root
 # directories "qdmr_parsing" and "annotation_pipeline", which have been developed separately 
 # but are under the same GitHub repository.'''
-
 sys.path.append('..')
 from annotation_pipeline.utils.app_store_generation import valid_annotation_tokens
 
@@ -64,10 +62,10 @@ def main(args):
         if args.evaluate:
             golds = [[s.strip() for s in args.gold.split('@@SEP@@')]]
         if args.model == "dynamic":
-            valid_tokens=[fix_references(valid_token) for valid_token in valid_annotation_tokens(args.question)]
+            valid_tokens = [fix_references(valid_token) for valid_token in valid_annotation_tokens(args.question)]
             allowed_tokens = [str(valid_tokens)]
         else:
-            allowed_tokens=None
+            allowed_tokens = None
 
     # initialize a model
     model = init_model(args)
@@ -79,7 +77,6 @@ def main(args):
     else:
         decompositions = model.predict(questions, args.print_non_decomposed, args.verbose,
                                        extra_args=allowed_tokens)
-
 
     # evaluation
     if args.evaluate:
