@@ -1,6 +1,6 @@
 # Break: A Question Understanding Benchmark
 
-This repository contains code by [Mor Geva](https://mega002.github.io/), [Ankit Gupta](https://sites.google.com/view/ag1988/home) and [Tomer Wolfson](https://github.com/tomerwolgithub) for our paper, ["Break It Down: A Question Understanding Benchmark"](https://arxiv.org/abs/2001.11770v1) (TACL 2020). The repository features the codebase and models from our paper.   
+This repository contains code by [Mor Geva](https://mega002.github.io/), [Ankit Gupta](https://sites.google.com/view/ag1988/home) and [Tomer Wolfson](https://tomerwolgithub.github.io/) for our paper, ["Break It Down: A Question Understanding Benchmark"](https://arxiv.org/abs/2001.11770v1) (TACL 2020). The repository features the codebase and models from our paper.   
 For the Break dataset please refer to: [https://allenai.github.io/Break](https://allenai.github.io/Break)
 
 Break is a human annotated dataset of natural language questions and their Question Decomposition Meaning Representations (QDMRs). Break consists of 83,978 examples sampled from 10 question answering datasets over text, images and databases.
