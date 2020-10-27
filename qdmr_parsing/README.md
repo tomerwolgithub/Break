@@ -40,6 +40,14 @@ optional arguments:
                         0.2}
 ```
 
+### Lexicon file generation
+The lexicon json files for our QDMR parsing models are all found in Break's [dataset](https://github.com/allenai/Break/tree/master/break_dataset).
+To generate the list of valid lexicon tokens for a *new* example, you can use the `valid_annotation_tokens` found [here](https://github.com/tomerwolgithub/Break/blob/master/annotation_pipeline/utils/app_store_generation.py). You would still need to format the valid lexicon tokens according to the lexicon file format `{"source": "NL question", "allowed_tokens": [valid annotation tokens]}`. E.g.:
+
+```
+{"source": "what flights go from dallas to phoenix ", "allowed_tokens": "['higher than', 'same as', 'what ', 'and ', 'than ', 'at most', 'distinct', 'two', 'at least', 'or ', 'date', 'on ', '@@14@@', 'equal', 'hundred', 'those', 'sorted by', 'elevation', 'which ', '@@6@@', 'was ', 'dallas', 'did ', 'population', 'height', 'one', 'that ', 'on', 'did', 'who', 'true', '@@2@@', '100', 'false', 'and', 'was', 'who ', 'a ', 'the', 'number of ', '@@16@@', 'if ', 'where', '@@18@@', 'how', 'larger than', 'is ', 'from ', 'a', 'for each', 'less', 'are ', '@@19@@', '@@4@@', '@@11@@', 'distinct ', 'flight', 'to', 'not ', 'objects', 'with ', ', ', 'lowest', 'in', 'has ', 'zero', 'in ', 'there ', 'lower than', 'highest', 'go', '@@9@@', 'than', 'size', 'multiplication', 'with', 'besides ', ',', '@@1@@', 'what', 'have', 'those ', 'of', '@@3@@', 'that', 'there', '@@10@@', '@@5@@', 'both ', '@@15@@', 'number of', 'price', 'any', 'which', 'to ', 'how ', 'when ', 'of ', 'division', 'dallass', 'is', 'sum', 'or', 'if', 'more', '@@12@@', 'smaller than', 'flights', 'phoenix', '@@7@@', '@@17@@', 'for each ', 'from', '@@13@@', 'has', 'difference', 'when', 'are', 'any ', '@@8@@', 'both', 'the ', ',  ', 'besides', 'have ', 'where ', 'not']"}
+```
+
 ## Model training and inference
 
 There are 5 baseline models implemented in the paper, three seq2seq neural models and two rule-based (not-neural) models:
