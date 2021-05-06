@@ -24,7 +24,7 @@ en-core-web-sm==2.1.0
 entrypoints==0.3
 flaky==3.6.1
 Flask==1.1.1
-Flask-Cors==3.0.8
+Flask-Cors==3.0.9
 ftfy==5.6
 gast==0.2.2
 gevent==1.4.0
