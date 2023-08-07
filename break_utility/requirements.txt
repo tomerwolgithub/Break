@@ -90,7 +90,7 @@ protobuf==3.11.2
 ptyprocess==0.6.0
 py==1.8.0
 pycparser==2.19
-Pygments==2.5.2
+Pygments==2.7.4
 pyparsing==2.4.5
 pyrsistent==0.15.6
 pytest==5.3.0
